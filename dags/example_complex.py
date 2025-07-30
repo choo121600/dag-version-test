@@ -219,9 +219,9 @@ with DAG(
     create_tag_template >> create_tag_template_result
     create_tag_template >> create_tag_template_result2
 
-    # create_tag_template_field >> delete_tag_template_field
-    # create_tag_template_field >> create_tag_template_field_result
-    # create_tag_template_field >> create_tag_template_field_result2
+    create_tag_template_field >> delete_tag_template_field
+    create_tag_template_field >> create_tag_template_field_result
+    create_tag_template_field >> create_tag_template_field_result2
 
     create_tag >> delete_tag
     create_tag >> create_tag_result
