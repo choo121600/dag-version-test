@@ -6,7 +6,7 @@ from airflow.providers.standard.operators.bash import BashOperator
 from airflow.sdk import DAG, chain
 
 with DAG(
-    dag_id="example_complex",
+    dag_id="git_dag_version_example",
     schedule=None,
     start_date=pendulum.datetime(2021, 1, 1, tz="UTC"),
     catchup=False,
@@ -219,9 +219,9 @@ with DAG(
     create_tag_template >> create_tag_template_result
     create_tag_template >> create_tag_template_result2
 
-    # create_tag_template_field >> delete_tag_template_field
-    # create_tag_template_field >> create_tag_template_field_result
-    # create_tag_template_field >> create_tag_template_field_result2
+    create_tag_template_field >> delete_tag_template_field
+    create_tag_template_field >> create_tag_template_field_result
+    create_tag_template_field >> create_tag_template_field_result2
 
     create_tag >> delete_tag
     create_tag >> create_tag_result
