@@ -212,16 +212,16 @@ with DAG(
     create_entry_group >> create_entry_group_result2
 
     create_entry_gcs >> delete_entry
-    # create_entry_gcs >> create_entry_gcs_result
-    # create_entry_gcs >> create_entry_gcs_result2
+    create_entry_gcs >> create_entry_gcs_result
+    create_entry_gcs >> create_entry_gcs_result2
 
     create_tag_template >> delete_tag_template_field
     create_tag_template >> create_tag_template_result
     create_tag_template >> create_tag_template_result2
 
-    # create_tag_template_field >> delete_tag_template_field
-    # create_tag_template_field >> create_tag_template_field_result
-    # create_tag_template_field >> create_tag_template_field_result2
+    create_tag_template_field >> delete_tag_template_field
+    create_tag_template_field >> create_tag_template_field_result
+    create_tag_template_field >> create_tag_template_field_result2
 
     create_tag >> delete_tag
     create_tag >> create_tag_result
