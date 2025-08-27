@@ -36,11 +36,14 @@ def enhanced_dynamic_taskflow():
     @task
     def compute_statistics(results: list):
         print("Computing statistics from team results...")
-        stats = {"total_teams": len(results), "success_count": sum(
-            [1 for r in results if "done" in r])}
+        stats = {
+            "total_teams": len(results),
+            "success_count": sum([1 for r in results if "done" in r])
+        }
         print(stats)
         return stats
 
+    # 팀별 TaskGroup 생성
     team_results = []
 
     for team in teams:
@@ -70,25 +73,20 @@ def enhanced_dynamic_taskflow():
                 return {"team": validated_data, "score": score}
 
             @task
-            def postprocess_high_score(result: dict):
-                print(
-                    f"[{result['team']}] High score postprocessing for {result['score']}")
-                return f"{result['team']}_high_done"
+            def postprocess_by_score(result: dict):
+                if result["score"] >= 50:
+                    print(
+                        f"[{result['team']}] High score postprocessing for {result['score']}")
+                    return f"{result['team']}_high_done"
+                else:
+                    print(
+                        f"[{result['team']}] Low score postprocessing for {result['score']}")
+                    return f"{result['team']}_low_done"
 
-            @task
-            def postprocess_low_score(result: dict):
-                print(
-                    f"[{result['team']}] Low score postprocessing for {result['score']}")
-                return f"{result['team']}_low_done"
-
-            # TaskFlow 의존성 및 조건부 분기
+            # TaskFlow 의존성 연결
             validated = validate(preprocess(team))
             analyzed = analyze(validated)
-
-            # 점수에 따라 후처리 분기
-            post_result = postprocess_high_score(
-                analyzed) if analyzed["score"] >= 50 else postprocess_low_score(analyzed)
-
+            post_result = postprocess_by_score(analyzed)
             team_results.append(post_result)
 
     # 중간 통계 계산
