@@ -242,7 +242,7 @@ with DAG(
     create_entry_gcs >> lookup_entry >> delete_entry
     lookup_entry >> lookup_entry_result
 
-    create_tag_template_field >> rename_tag_template_field >> delete_tag_template_field
+    # create_tag_template_field >> rename_tag_template_field >> delete_tag_template_field
 
     chain(create_tasks, search_catalog)
     search_catalog >> search_catalog_result
