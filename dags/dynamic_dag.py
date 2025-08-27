@@ -51,7 +51,7 @@ def enhanced_dynamic_taskflow():
 
             @task
             def preprocess(team_name: str):
-                print(f"[{team_name}] Preprocessing data......!")
+                print(f"[{team_name}] Preprocessing data...")
                 return f"{team_name}_preprocessed"
 
             @task
