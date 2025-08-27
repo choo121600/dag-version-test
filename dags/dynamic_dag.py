@@ -18,7 +18,7 @@ default_args = {
     dag_id="complex_dynamic_taskflow_dag",
     default_args=default_args,
     description="Complex Dynamic DAG for testing with TaskFlow API",
-    schedule_interval=timedelta(days=1),
+    schedule=None,
     start_date=datetime(2025, 1, 1),
     catchup=False,
     tags=["dynamic", "taskflow", "complex"]
