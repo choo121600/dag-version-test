@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 from airflow.decorators import dag, task
 from airflow.utils.task_group import TaskGroup
 
-teams = ["team_a", "team_b", "team_c"]
+teams = ["team_a", "team_b"]
 
 default_args = {
     'owner': 'airflow',
