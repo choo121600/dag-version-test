@@ -45,7 +45,7 @@ def complex_dynamic_taskflow():
 
             @task
             def analyze(preprocessed_data: str):
-                print(f"[{preprocessed_data}] Analyzing data...")
+                print(f"[{preprocessed_data}] Analyzing data......")
                 return f"{preprocessed_data}_analyzed"
 
             @task
