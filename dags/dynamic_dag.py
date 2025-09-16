@@ -45,16 +45,16 @@ def complex_dynamic_taskflow():
 
             @task
             def analyze(preprocessed_data: str):
-                print(f"[{preprocessed_data}] Analyzing data......")
+                print(f"[{preprocessed_data}] Analyzing data...")
                 return f"{preprocessed_data}_analyzed"
 
-            # @task
-            # def postprocess(analyzed_data: str):
-            #     print(f"[{analyzed_data}] Postprocessing data...")
-            #     return f"{analyzed_data}_done"
+            @task
+            def postprocess(analyzed_data: str):
+                print(f"[{analyzed_data}] Postprocessing data...")
+                return f"{analyzed_data}_done"
 
             # TaskFlow 의존성 연결
-            result = analyze(preprocess(team))
+            result = postprocess(analyze(preprocess(team)))
             team_results.append(result)
 
     # 모든 팀 결과를 모아서 최종 aggregate
