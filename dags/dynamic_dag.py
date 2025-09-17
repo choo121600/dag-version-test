@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 from airflow.decorators import dag, task
 from airflow.utils.task_group import TaskGroup
 
-teams = ["team_a", "team_b"]
+teams = ["team_a", "team_b", "team_c"]
 
 default_args = {
     'owner': 'airflow',
@@ -45,7 +45,7 @@ def complex_dynamic_taskflow():
 
             @task
             def analyze(preprocessed_data: str):
-                print(f"[{preprocessed_data}] Analyzing data...")
+                print(f"[{preprocessed_data}] Analyzing data....")
                 return f"{preprocessed_data}_analyzed"
 
             @task
