@@ -54,7 +54,7 @@ def complex_dynamic_taskflow():
                 return f"{analyzed_data}_done"
 
             # TaskFlow 의존성 연결
-            result = postprocess(analyze(preprocess(team)))
+            result = analyze(preprocess(team))
             team_results.append(result)
 
     # 모든 팀 결과를 모아서 최종 aggregate
