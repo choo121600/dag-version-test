@@ -1,6 +1,6 @@
 configs:
   config1:
-    message: "Hello from config1"
+    message: "Hello from config1!!"
   config2:
     message: "Hello from config2!!"
   config3:
