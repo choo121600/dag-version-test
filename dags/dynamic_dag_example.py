@@ -27,7 +27,7 @@ for config_name, config in configs.items():
         # Dynamic Task 생성 예제
         from utils.common import ALL_TASKS
         for task_name in ALL_TASKS:
-            print_message(f"{task_name} says: {config['message']}!")
+            print_message(f"{task_name} says: {config['message']}!!!!!")
 
     # DAG 등록
     dynamic_generated_dag()
