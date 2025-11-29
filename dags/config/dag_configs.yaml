@@ -1,7 +1,7 @@
 configs:
   config1:
-    message: "Hello from config12"
+    message: "Hello from config112"
   config2:
-    message: "Hello from config21"
+    message: "Hello from config213"
   config3:
     message: "Hello from config3"
